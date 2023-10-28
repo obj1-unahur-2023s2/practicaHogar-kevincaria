@@ -24,7 +24,7 @@ class Banio inherits Habitacion{
 
     override method nivelDeConfort(unaPersona){
         var confortAdicional = if(unaPersona.edad()<=4){2}else{4}
-        return super() + confortAdicional
+        return super(unaPersona) + confortAdicional
     }
 
     override method puedeEntrar(unaPersona){
@@ -37,7 +37,7 @@ class Dormitorio inherits Habitacion{
 
     override method nivelDeConfort(unaPersona){
         var confortAdicional = if(residentes.contains(unaPersona)){10/residentes.size()}else{0}
-        return super() + confortAdicional
+        return super(unaPersona) + confortAdicional
     }
 
     override method puedeEntrar(unaPersona){
@@ -49,7 +49,7 @@ class Cocina inherits Habitacion{
     var property m2
 
     override method nivelDeConfort(unaPersona){
-        return super() + self.calcularValorPorcentaje(porcentajeConfort.unidades(),m2)
+        return super(unaPersona) + self.calcularValorPorcentaje(porcentajeConfort.unidades(),m2)
     }
 
     method calcularValorPorcentaje(porcentaje, valorTotal) {
